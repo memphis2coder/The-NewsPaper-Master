@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto&display=swap');
+
+/* Global Styles */
+:root {
+    --color-bg-grey: #f9f9f9;
+    --color-white: #ffffff;
+    --color-blue: #5275DA;
+    --font-open: 'Open Sans', sans-serif;
+    --font-robo: 'Roboto', sans-serif;
+    --font-mont: 'Montserrat', sans-serif;
+}
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-open);
+    background-color: var(--color-bg-grey);
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+ul {
+    margin: 0;
+    padding: 0;
+}
+li {
+    list-style-type: none;
+}
+a {
+    text-decoration: none;
+}
+hr {
+    color: var(--color-bg-grey)
+}
+
+/* Header */
+#header {
+    text-align: center;
+    padding: 50px 0;
+    background-color: var(--color-white);
+}
+#header .logo {
+    text-decoration: none;
+    font-size: calc(25px + 1vw);
+    color: black;
+}
+#header .nav-menu {
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    margin-top: 20px;
+}
+#header .nav-menu li {
+    padding: 10px 10px 10px 10px;
+    font-size: calc(14px + .5vw);
+    font-weight: bold;
+    font-family: var(--font-mont);
+    color: black;
+}
+#header .nav-menu li:hover {
+    text-decoration: underline;
+}
+#date {
+    text-align: right;
+    font-size: calc(10px + .4vw);
+}
+@media (max-width: 600px) {
+    #date {
+        display: none;
+    }
+}
+
+/* Main */
+#main .container{
+    background-color: var(--color-white);
+    padding: 0 20px;
+    height: 100%;
+}
+#main .grid-template {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: 10px;
+    padding: 10px 0px 10px 0px;
+    border-top: 1px solid lightgray;
+    height: 100%;
+}
+#main .grid-title {
+    color: var(--color-blue);
+}
+/* #main .latest .card {
+    text-align: center;
+} */
+#main .card img {
+    width: 100%;
+    object-fit: cover;
+}
+#main .sports {
+    text-align: right;
+    padding: 1rem;
+}
+#main .sports .card {
+    margin-bottom: 20px
+}
+#main .top {
+    text-align: center;
+    border-left: 1px solid lightgrey;
+    border-right: 1px solid lightgrey; 
+    padding: 1rem;
+}
+#main .top .card {
+    margin-bottom: 20px;
+}
+#main .entertainment {
+    text-align: left;
+    padding: 1rem;
+}
+#main .entertainment .card {
+    margin-bottom: 20px;
+    text-align: right;
+}
+#main .card-text {
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+@media (max-width: 600px) {
+    #main .grid-template {
+        grid-template-columns: 1fr;
+    }
+    #main .top {
+        text-align: center;
+        order: 1;
+    }
+    #main .sports {
+        text-align: center;
+        order: 0;
+    }
+    #main .entertainment {
+        text-align: center;
+        order: 0;
+    }
+}
+
+/* footer */
+#footer {
+    display: flex;
+    background-color: white;
+    font-size: 14px;
+    text-align: center;
+    color: lightgrey;
+}
+
+/********************* 
+    sports page styles 
+**********************/
+.sportsTwo .card  {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
+.sportsTwo .card {
+    text-align: center;
+}
+.sportsTwo #title {
+    font-size: calc(12px + .5vw);
+}
+.sportsTwo #info {
+    font-size: calc(11px + .3vw);
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+.sportsTwo #link {
+    padding-bottom: 10px;
+}
+@media (max-width: 600px) {
+    .sportsTwo .card {
+        width: 100%;
+    }
+}
+#grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: 20px;
+}
+#grid .card {
+    margin-top: 8%;
+    border: 1px solid lightgrey;
+    height: 80%;
+    text-align: center;
+}
+#grid img {
+    height: 50%;
+}
+@media (max-width: 600px) {
+    #grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-gap: 50px;
+    }
+    #grid img {
+        height: 100%;
+    }
+}
+#gridF {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: 20px;
+    padding-bottom: 60px;
+}
+#gridF img {
+    height: 50%;
+}
+#gridF .card {
+    border: 1px solid lightgrey;
+    height: 100%;
+    text-align: center;
+}
+
+.footerS {
+    margin-top: 0px;
+}
+@media (max-width: 768px) {
+    #grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+    }
+    #gridF {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+    }
+}
+@media (max-width: 600px) {
+    #grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+    #gridF {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-gap: 125px;
+    }
+    #gridF img {
+        height: 100%;
+    }
+    .footerS {
+        margin-top: 0px;
+    }
+}
+
+/********************* 
+    entertainment page styles 
+**********************/
+.et .card  {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
+.et .card {
+    text-align: center;
+}
+.et #title {
+    font-size: calc(12px + .5vw);
+}
+.et #info {
+    font-size: calc(11px + .3vw);
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+.et #link {
+    padding-bottom: 10px;
+}
+@media (max-width: 600px) {
+    .et .card {
+        width: 100%;
+    }
+}
+@media (max-width: 768px) {
+    #movies .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        grid-gap: 20px;
+    }
+}
