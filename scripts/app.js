@@ -1,17 +1,17 @@
-//const API_KEY = '88cbb71bd9c54332899953287b7b567e';
-const API_KEY= '42c0a64fe17a23f04605ab8ba63a9155';
+const API_KEY = '88cbb71bd9c54332899953287b7b567e';
+//const API_KEY= '42c0a64fe17a23f04605ab8ba63a9155';
 var proxyUrl = 'https://cors-anywhere.herokuapp.com/'
-//const urlT = `https://newsapi.org/v2/top-headlines?country=us&pageSize=4&apiKey=${API_KEY}`; // top news
-const urlT = `https://gnews.io/api/v3/top-news?token=${API_KEY}`; // top news
-//const urlS = `https://newsapi.org/v2/top-headlines?country=us&category=sports&pageSize=6&apiKey=${API_KEY}`; // sports news
-const urlS = `https://gnews.io/api/v3/topics/sports?token=${API_KEY}`;
-//const urlE = `https://newsapi.org/v2/top-headlines?country=us&category=entertainment&pageSize=6&apiKey=${API_KEY}` // entertainment
-const urlE = `https://gnews.io/api/v3/topics/entertainment?token=${API_KEY}` // entertainment
+const urlT = `https://newsapi.org/v2/top-headlines?country=us&pageSize=4&apiKey=${API_KEY}`; // top news
+//const urlT = `https://gnews.io/api/v3/search?q=top-headlines&image=require&token=42c0a64fe17a23f04605ab8ba63a9155`; // top news
+const urlS = `https://newsapi.org/v2/top-headlines?country=us&category=sports&pageSize=6&apiKey=${API_KEY}`; // sports news
+//const urlS = `https://gnews.io/api/v3/search?q=sports&image=require?token=${API_KEY}`;
+const urlE = `https://newsapi.org/v2/top-headlines?country=us&category=entertainment&pageSize=6&apiKey=${API_KEY}` // entertainment
+//const urlE = `https://gnews.io/api/v3/search?q=entertainment&image=require?token=${API_KEY}` // entertainment
 
 
 // sports news
-async function sports() {
-    await fetch(proxyUrl + urlS)
+function sports() {
+    fetch(proxyUrl + urlS)
     .then((response) => response.json())
     .then((data) => {
         let sports = data.articles;
@@ -21,7 +21,7 @@ async function sports() {
             return `
             <hr>
                 <div class=card>
-                    <img src='${sport.image}'>
+                    <img src='${sport.urlToImage}'>
                     <p class='card-text' id='title'>${sport.title}</p>
                     <a href='${sport.url}' target='_blank'>read more</a>
                 </div>
