@@ -1,12 +1,9 @@
-const API_KEY = '88cbb71bd9c54332899953287b7b567e';
-//const API_KEY= '42c0a64fe17a23f04605ab8ba63a9155';
+const API_KEY= '42c0a64fe17a23f04605ab8ba63a9155';
 var proxyUrl = 'https://cors-anywhere.herokuapp.com/'
-const urlT = `https://newsapi.org/v2/top-headlines?country=us&pageSize=4&apiKey=${API_KEY}`; // top news
-//const urlT = `https://gnews.io/api/v3/search?q=top-headlines&image=require&token=42c0a64fe17a23f04605ab8ba63a9155`; // top news
-const urlS = `https://newsapi.org/v2/top-headlines?country=us&category=sports&pageSize=6&apiKey=${API_KEY}`; // sports news
-//const urlS = `https://gnews.io/api/v3/search?q=sports&image=require?token=${API_KEY}`;
-const urlE = `https://newsapi.org/v2/top-headlines?country=us&category=entertainment&pageSize=6&apiKey=${API_KEY}` // entertainment
-//const urlE = `https://gnews.io/api/v3/search?q=entertainment&image=require?token=${API_KEY}` // entertainment
+
+const urlT = `https://gnews.io/api/v3/search?q=nfl&max=6&image=require&token=42c0a64fe17a23f04605ab8ba63a9155`; // top news
+const urlS = `https://gnews.io/api/v3/search?q=sports&max=6&image=require&token=42c0a64fe17a23f04605ab8ba63a9155`; // sports news
+const urlE = `https://gnews.io/api/v3/search?q=tv&max=6&image=require&token=42c0a64fe17a23f04605ab8ba63a9155` // entertainment
 
 
 // sports news
@@ -21,7 +18,7 @@ function sports() {
             return `
             <hr>
                 <div class=card>
-                    <img src='${sport.urlToImage}'>
+                    <img src='${sport.image}'>
                     <p class='card-text' id='title'>${sport.title}</p>
                     <a href='${sport.url}' target='_blank'>read more</a>
                 </div>
@@ -37,7 +34,7 @@ function sports() {
 
 // main news
 async function main() {
-    const response = await fetch(proxyUrl + urlT);
+    const response =  await fetch(proxyUrl + urlT);
     const data = await response.json();
     let top = data.articles;
     console.log("top stories:", top);
@@ -46,7 +43,7 @@ async function main() {
         return `
         <hr>
             <div class=card>
-                <img src='${top.urlToImage}'>
+                <img src='${top.image}'>
                 <p class='card-text' id='title'>${top.title}</p>
                 <a href='${top.url}' target='_blank'>read more</a>
             </div>
@@ -70,7 +67,7 @@ async function et() {
         return `
         <hr>
             <div class=card>
-                <img src='${ent.urlToImage}'>
+                <img src='${ent.image}'>
                 <p class='card-text' id='title'>${ent.title}</p>
                 <a href='${ent.url}' target='_blank'>read more</a>
             </div>

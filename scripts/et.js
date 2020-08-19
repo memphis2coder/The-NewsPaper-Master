@@ -1,8 +1,8 @@
-const API_KEY = '88cbb71bd9c54332899953287b7b567e';
+const API_KEY= '42c0a64fe17a23f04605ab8ba63a9155'
 var proxyUrl = 'https://cors-anywhere.herokuapp.com/'
-const urlE = `https://newsapi.org/v2/top-headlines?country=us&category=entertainment&pageSize=6&apiKey=${API_KEY}` // entertainment
-const urlM = `https://newsapi.org/v2/everything?q=movies&pageSize=4&apiKey=${API_KEY}`
-const urlTv = `https://newsapi.org/v2/everything?q=cable&pageSize=4&apiKey=${API_KEY}`
+const urlE = `https://gnews.io/api/v3/search?q=music&max=6&image=require&token=42c0a64fe17a23f04605ab8ba63a9155` // entertainment
+const urlM = `https://gnews.io/api/v3/search?q=movies&max=4&image=require&token=42c0a64fe17a23f04605ab8ba63a9155`
+const urlTv = `https://gnews.io/api/v3/search?q=tv&max=4&image=require&token=42c0a64fe17a23f04605ab8ba63a9155`
 
 // entertainment news
 async function et() {
@@ -11,7 +11,7 @@ async function et() {
     let ent = data.articles;
     //console.log(ent);
 
-        var image = data.articles[0].urlToImage;
+        var image = data.articles[0].image;
         var title = data.articles[0].title;
         var info = data.articles[0].description;
         var link = data.articles[0].url;
@@ -35,7 +35,7 @@ async function movies() {
         return `
         
             <div class=card>
-                <img src='${movie.urlToImage}'>
+                <img src='${movie.image}'>
                 <p class='card-text' id='title'>${movie.title}</p>
                 <a href='${movie.url}' target='_blank'>read more</a>
             </div>
@@ -58,7 +58,7 @@ async function tv() {
         return `
         
             <div class=card>
-                <img src='${tv.urlToImage}'>
+                <img src='${tv.image}'>
                 <p class='card-text' id='title'>${tv.title}</p>
                 <a href='${tv.url}' target='_blank'>read more</a>
             </div>

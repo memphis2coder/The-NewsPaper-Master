@@ -1,8 +1,8 @@
-const API_KEY = '88cbb71bd9c54332899953287b7b567e';
+const API_KEY= '42c0a64fe17a23f04605ab8ba63a9155'
 var proxyUrl = 'https://cors-anywhere.herokuapp.com/'
-const urlS = `https://newsapi.org/v2/top-headlines?country=us&category=sports&pageSize=1&apiKey=${API_KEY}`; // sports news
-const urlBase = `https://newsapi.org/v2/everything?q=mlb&pageSize=4&apiKey=${API_KEY}` //baseball news
-const urlFoot = `https://newsapi.org/v2/everything?q=football&pageSize=4&apiKey=${API_KEY}` // football news
+const urlS = `https://gnews.io/api/v3/search?q=sports&max=6&image=require&token=42c0a64fe17a23f04605ab8ba63a9155` // sports news
+const urlBase = `https://gnews.io/api/v3/search?q=baseball&max=4&image=require&token=42c0a64fe17a23f04605ab8ba63a9155` //baseball news
+const urlFoot = `https://gnews.io/api/v3/search?q=nfl&max=4&image=require&token=42c0a64fe17a23f04605ab8ba63a9155` // football news
 
 // sports news
 async function sports() {
@@ -11,7 +11,7 @@ async function sports() {
     .then((data) => {
         let sports = data.articles;
         console.log(sports);
-        var image = data.articles[0].urlToImage;
+        var image = data.articles[0].image;
         var title = data.articles[0].title;
         var info = data.articles[0].description;
         var link = data.articles[0].url;
@@ -36,7 +36,7 @@ async function baseball() {
             return `
             
                 <div class='card'>
-                    <img src='${base.urlToImage}'>
+                    <img src='${base.image}'>
                     <p class='card-text' id='title'>${base.title}</p>
                     <a href='${base.url}' target='_blank'>read more</a>
                 </div>
@@ -63,7 +63,7 @@ async function football() {
             return `
             
                 <div class='card'>
-                    <img src='${foot.urlToImage}'>
+                    <img src='${foot.image}'>
                     <p class='card-text' id='title'>${foot.title}</p>
                     <a href='${foot.url}' target='_blank'>read more</a>
                 </div>
