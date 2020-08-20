@@ -1,9 +1,9 @@
 const API_KEY= '42c0a64fe17a23f04605ab8ba63a9155';
 var proxyUrl = 'https://cors-anywhere.herokuapp.com/'
 
-const urlT = `https://gnews.io/api/v3/search?q=nfl&max=6&image=require&token=42c0a64fe17a23f04605ab8ba63a9155`; // top news
+const urlT = `https://gnews.io/api/v3/search?q=news&max=6&image=require&token=42c0a64fe17a23f04605ab8ba63a9155`; // top news
 const urlS = `https://gnews.io/api/v3/search?q=sports&max=6&image=require&token=42c0a64fe17a23f04605ab8ba63a9155`; // sports news
-const urlE = `https://gnews.io/api/v3/search?q=tv&max=6&image=require&token=42c0a64fe17a23f04605ab8ba63a9155` // entertainment
+const urlE = `https://gnews.io/api/v3/search?q=hollywood&max=6&image=require&token=42c0a64fe17a23f04605ab8ba63a9155` // entertainment
 
 
 // sports news
